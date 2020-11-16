@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script type='text/javascript' src='./kvue.js'></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ info.name.age }}</p>
+      <ul>
+        <li>
+          <div>{{message}}</div>
+        </li>
+      </ul>
+      <input type="text" g-model="message">
+      <button @click="handleClick">按钮</button>
+    </div>
+
+    <script type="text/javascript">
+      var v = new Date().getTime()
+      document.write(
+        "<script type='text/javascript' src='./gvue.js?v=" + v + "'><\/script>"
+      )
+
+      window.onload = () => {
+        var app = new GVue({
+          el: '#app',
+          data: {
+            message: 'Hello Vue!',
+            message1: 'nihao',
+            info: {
+              name: {
+                age: '18'
+              }
+            },
+            htmlNode: '<p style="color: red">你好呀！</p>',
+          },
+          methods: {
+            handleClick() {
+              this.message = '1000'
+            }
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
